@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>kouhigh-签到</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="qd_app.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="jquery.cookie.js"></script>
+    <script src="setfontsize.js"></script>
+    <script src="jquery.fly.min.js"></script>
+    <style>
+        [v-cloak] {
+            display: none ;
+        }
+    </style>
+</head>
+<body style="background:#FFEFBD;">
+<!--<input type="button" name="" value="点击调用" onclick="javascript:WebIndexActivity()"/>-->
+<div class="wrap">
+    <!--<div class="qd_top">-->
+        <!--<a href="javascript:;" class="qd_back"></a>-->
+        <!--<label>签到送豪礼</label>-->
+    <!--</div>-->
+    <div class="qd_main">
+        <!--签到路径start-->
+        <div class="qd_step_wrap">
+            <div class="qd_move_car" id="qd_move_car"></div>
+
+            <div class="qd_step">
+                <div class="qd_step_road_list qd_step_road_list_first">
+                    <ul>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="images/qd_receive_one.png" alt="">
+                            </span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                    </ul>
+                    <div class="qd_step_road_curve_wrap">
+                        <div class="qd_step_road_curve qd_step_road_curve_right" style="float:right;"></div>
+                    </div>
+                </div>
+
+                <div class="qd_step_road_list">
+                    <ul>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="images/qd_receive_two.png" alt="">
+                            </span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li class="qd_receive_one">
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                    </ul>
+                    <div class="qd_step_road_curve_wrap">
+                        <div class="qd_step_road_curve qd_step_road_curve_left" style="float:left;"></div>
+                    </div>
+                </div>
+
+                <div class="qd_step_road_list">
+                    <ul>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="images/qd_receive_three.png" alt="">
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="qd_step_road_curve_wrap">
+                        <div class="qd_step_road_curve qd_step_road_curve_right" style="float:right;"></div>
+                    </div>
+                </div>
+
+                <div class="qd_step_road_list">
+                    <ul>
+                        <li>
+                            <span>
+                                <img src="images/qd_receive_four.png" alt="">
+                            </span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                    </ul>
+                    <div class="qd_step_road_curve_wrap">
+                        <div class="qd_step_road_curve qd_step_road_curve_left" style="float:left;"></div>
+                    </div>
+                </div>
+
+                <div class="qd_step_road_list qd_step_road_list_last">
+                    <ul>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qd_empty_hint">
+                <span id="delDays"></span>
+                天后清空签到信息
+            </div>
+
+        </div>
+        <!--签到路径end-->
+
+        <!--签到信息start-->
+        <div class="qd_info_wrap">
+            <div class="qd_info_left">
+                <span><i class="shop_cart_num"></i></span>
+            </div>
+            <div class="qd_info_right">
+                分享
+            </div>
+            <div class="qd_state_btn" id="qd_state_btn">签到</div>
+            <div class="qd_supplement_info">
+                <!--<label class="qd_supplement_info_already">已补签：<i></i></label>-->
+                <!--<label class="qd_supplement_info_surplus">补签剩余：<i></i></label>-->
+            </div>
+        </div>
+
+        <!--签到信息end-->
+
+        <div class="qd_gift_bag_wrap">
+            <dl>
+                <dt><img src="" alt=""></dt>
+                <dd>再签到<span class="giftReceiveDay1"></span>天获得</dd>
+            </dl>
+            <dl>
+                <dt><img src="" alt=""></dt>
+                <dd>再签到<span class="giftReceiveDay2"></span>天获得</dd>
+            </dl>
+            <dl>
+                <dt><img src="" alt=""></dt>
+                <dd>再签到<span class="giftReceiveDay3"></span>天获得</dd>
+            </dl>
+            <dl>
+                <dt><img src="" alt=""></dt>
+                <dd>再签到<span class="giftReceiveDay4"></span>天获得</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!--领取礼包提示start-->
+    <div class="hint_message">已成功加入礼包车！</div>
+    <!--领取礼包提示end-->
+
+    <!--积分增加提示start-->
+    <div class="integral_hint_message">积分：+ <span></span></div>
+    <!--积分增加提示start-->
+
+    <!--礼包内容弹层start-->
+    <div class="gift_content_dialog">
+        <div class="gift_content_wrap">
+
+            <div class="gift_content">
+                <img src="" alt="">
+            </div>
+            <div class="gift_content_close"></div>
+        </div>
+    </div>
+    <!--礼包内容弹层end-->
+</div>
+
+<script>
+    $(function(){
+        var urlcommon='http://app.myzzz.top/app',//测试
+            carLeftSet = ($(".qd_step").css("paddingLeft").replace('px', ''))-5,
+            carHeight = $(".qd_move_car").height()/2,
+            carTopSet = ($(".qd_step").css("paddingTop").replace('px', ''))-carHeight;
+
+        $(".qd_move_car").css({
+            left:carLeftSet,
+            top:carTopSet
+        });
+
+        // 汽车的初始位置
+        var carX = $(".qd_move_car").offset().left;
+        var carY = $(".qd_move_car").offset().top;
+        var carLeft = $(".qd_move_car").css("left");
+        var carTop = $(".qd_move_car").css("top");
+        var array = [];
+        var rewardArray = [];//积分
+        var n=0;
+        // 后台请求数据
+        var qdToken = $.cookie("token");
+console.log(qdToken)
+        // function GetQueryString(name) {
+        //     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        //     var r = window.location.search.substr(1).match(reg);
+        //     if (r != null) return r[2];
+        //     return null;
+        // }
+        // var qdToken= GetQueryString('token');
+
+
+
+        var html = $.ajax({
+            type:"post",
+            dataType:"json",
+            url:urlcommon+"/customer/signData",
+            data:{
+                token:qdToken
+            },
+            async: false,
+            success:function(data){
+                localStorage.clear();
+                var start = data.content.start;
+                localStorage.setItem("start",start);
+                var arrDAays = data.content.calendar.length;//获取天数长度
+                var add_num = data.content.sign.add_num;//补签次数
+                var card_num = data.content.sign.card_num;//补签卡数
+                var days = parseInt(data.content.sign.days);//当前是第几天
+                var deldays = data.content.delDays;//几天后清空签到消息
+                var lb_img  = data.content.liBao;//礼包图片
+                var qd_reward  = data.content.calendar;//积分
+                var carts_num  = data.content.carts_num;//购物车数量
+                var isShare  = data.content.sign.is_share;//否有分享获取补签卡机会
+
+                $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+add_num+'</i></label>\n' +
+                    '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+card_num+'</i></label>')
+                for(var i=0;i<lb_img.length;i++){
+                    // 礼包封面图
+                    $(".qd_gift_bag_wrap dl dt img").attr("src",lb_img[i].cover);
+                }
+
+                // 查看礼包详情
+                $(".qd_gift_bag_wrap").on("click","dl",function(){
+                    var index = $(this).index();
+                    $(".gift_content_dialog").show();
+                    $(".gift_content img").attr("src",lb_img[index].images);
+
+                });
+                // 关闭礼包详情
+                $(".gift_content_close").click(function(){
+                    $(".gift_content_dialog").hide();
+                });
+
+
+                localStorage.setItem("days",days);//把当前是第几天签到放到缓存里，方面点击签到调用
+                localStorage.setItem("add_num",add_num);//把已补签数据放到缓存里，方面点击签到调用
+                localStorage.setItem("card_num",card_num);//把补签剩余次数放到缓存里，方面点击签到调用
+                localStorage.setItem("deldays",deldays);//把剩余清空数据时间放到缓存里，方面点击签到调用
+                localStorage.setItem("carts_num",carts_num);//把购物车数量放到缓存里，方面点击签到调用
+                localStorage.setItem("isShare",isShare);//把否有分享获取补签卡机会放到缓存里，方面点击签到调用
+
+
+                // return qdMoveCarFun();
+
+
+                // 签到
+                    var days = localStorage.getItem("days"),
+                        start = localStorage.getItem("start"),
+                        add_num = localStorage.getItem("add_num"),
+                        card_num = localStorage.getItem("card_num"),
+                        deldays = localStorage.getItem("deldays"),
+                        carts_num = localStorage.getItem("carts_num"),
+                        carLi = $(".qd_step_road_list ul li").width(),
+                        carStepFIrst = carLi/2,
+                        carRightStep1 = (carLi*(days-1))+carStepFIrst,
+                        carRightStep2 = (carLi*((days-14)-1))+carStepFIrst,
+                        carRightStep3 = (carLi*((days-28)-1))+carStepFIrst,
+                        carLeftStep1 = (15-days)*carLi-carStepFIrst,
+                        carLeftStep2 = (29-days)*carLi-carStepFIrst,
+                        carMoveTop = parseInt($(".qd_move_car").css("top").replace('px', '')),
+                        carTurnDistance = $(".qd_step_road_curve").height()+$(".qd_step_road_list ul").height()/2,
+                        hang= Math.ceil(days/7),
+                        lie= days-(hang-1)*7,
+                        lie1 = hang*7-days+1,
+                        quyu= hang%2;//判断奇偶行数
+                // if(days>0 && days<30){
+                //     // var integral_index = parseInt(days-1);
+                //     var qd_reward_num = parseInt(data.content.calendar[days].reward);
+                //     var qd_reward_day = parseInt(data.content.calendar[days].day);
+                // };
+
+
+            //积分
+            for(var i=0;i<qd_reward.length;i++){
+
+                rewardArray.push(qd_reward[i].reward);
+
+            };
+
+
+                // 获取礼包数量
+                    $(".shop_cart_num").text(carts_num);
+                    // var per_carts_num = parseInt(carts_num);
+                    // 获取礼包数量
+                    // if(days>=28){
+                    //     $(".shop_cart_num").text(parseInt(4)+per_carts_num)
+                    //
+                    // }
+                    // else if(days>=21){
+                    //     $(".shop_cart_num").text(parseInt(3)+per_carts_num)
+                    // }
+                    // else if(days>=11){
+                    //     $(".shop_cart_num").text(parseInt(2)+per_carts_num)
+                    // }
+                    // else if(days>=6){
+                    //     $(".shop_cart_num").text(parseInt(1)+per_carts_num)
+                    // }
+                    // else{
+                    //     $(".shop_cart_num").text(parseInt(0)+per_carts_num)
+                    // }
+
+                    // 签到状态
+                    if(start == 1){
+                        $("#qd_state_btn").text("已签到");
+                    } else if(start == 2){
+                        $("#qd_state_btn").text("签到");
+
+                    } else if(start == 3){
+
+                        $("#qd_state_btn").text("补签");
+
+                    };
+
+
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    if(quyu==0){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").addClass("active");
+
+                    }else{
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    };
+
+                    $(".qd_move_car").text(days);//当前签到第几天
+                    $(".qd_supplement_info_already i").text(add_num);//已补签次数
+                    $(".qd_supplement_info_surplus i").text(card_num);//补签剩余次数
+                    $("#delDays").text(deldays);//补签剩余次数
+
+
+                    // 小车位置
+                    if(days == 0){
+                        $(".qd_move_car").css({
+                            left:carLeftSet,
+                            top:carTopSet
+                        });
+                        carLeft = carLeftSet;
+                        carTop = carTopSet;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    } else if(days == 1){
+                        $(".qd_move_car").css({
+                            left:carStepFIrst,
+                            top:carTopSet
+                        });
+                        carLeft = carStepFIrst;
+                        carTop = carTopSet;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    }else if(days == 8){
+                        $(".qd_move_car").css({
+                            left:(carLi*(days-1))-carStepFIrst,
+                            top:carMoveTop+carTurnDistance
+                        });
+                        carLeft = (carLi*(days-1))-carStepFIrst;
+                        carTop = carMoveTop+carTurnDistance;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    }else if(days<=7){
+                        $(".qd_move_car").css({
+                            left:carRightStep1,
+                            top:carTopSet
+                        });
+                        carLeft = carRightStep1;
+                        carTop = carTopSet;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+                    } else if(days<=14){
+                        $(".qd_move_car").css({
+                            left:carLeftStep1,
+                            top:carMoveTop+carTurnDistance
+                        });
+                        carLeft = carLeftStep1;
+                        carTop = carMoveTop+carTurnDistance;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    }else if(days == 15){
+
+                        $(".qd_move_car").css({
+                            left:carStepFIrst,
+                            top:carMoveTop+carTurnDistance*2-10
+                        });
+                        carLeft = carStepFIrst;
+                        carTop = carMoveTop+carTurnDistance*2-10;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    } else if(days <= 21){
+                        $(".qd_move_car").css({
+                            left:carRightStep2,
+                            top:carMoveTop+carTurnDistance*2-10
+                        });
+                        carLeft = carRightStep2;
+                        carTop = carMoveTop+carTurnDistance*2-10;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    } else if(days == 22){
+
+                        $(".qd_move_car").css({
+                            left:(carLi*((days-14)-1))-carStepFIrst,
+                            top:carMoveTop+carTurnDistance*3
+                        });
+
+                        carLeft = (carLi*((days-14)-1))-carStepFIrst;
+                        carTop = carMoveTop+carTurnDistance*3;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+
+                    } else if(days <= 28){
+                        $(".qd_move_car").css({
+                            left:carLeftStep2,
+                            top:carMoveTop+carTurnDistance*3
+                        });
+
+                        carLeft = carLeftStep2;
+                        carTop = carMoveTop+carTurnDistance*3;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    } else if(days == 29){
+
+                        $(".qd_move_car").css({
+                            left:carStepFIrst,
+                            top:carMoveTop+carTurnDistance*4-10
+                        });
+
+                        carLeft = carStepFIrst;
+                        carTop = carMoveTop+carTurnDistance*4-10;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    } else if(days <= 31){
+                        $(".qd_move_car").css({
+                            left:carRightStep3,
+                            top:carMoveTop+carTurnDistance*4-10
+                        });
+
+                        carLeft = carRightStep3;
+                        carTop = carMoveTop+carTurnDistance*4-10;
+                        array.splice(0,array.length);
+                        array.push(carLeft,carTop);
+
+                    };
+
+
+
+                if(days<=6){
+                    giftReceiveDay1=6-days;
+                    giftReceiveDay2=11-days;
+                    giftReceiveDay3=21-days;
+                    giftReceiveDay4=28-days;
+                    $(".giftReceiveDay1").text(giftReceiveDay1);
+                    $(".giftReceiveDay2").text(giftReceiveDay2);
+                    $(".giftReceiveDay3").text(giftReceiveDay3);
+                    $(".giftReceiveDay4").text(giftReceiveDay4);
+                    if(days == 6){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+
+
+                    }
+
+                } else if(days <= 11){
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    giftReceiveDay2=11-days;
+                    giftReceiveDay3=21-days;
+                    giftReceiveDay4=28-days;
+                    $(".giftReceiveDay2").text(giftReceiveDay2);
+                    $(".giftReceiveDay3").text(giftReceiveDay3);
+                    $(".giftReceiveDay4").text(giftReceiveDay4);
+                    if(days == 11){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").removeClass("active");
+                        $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+
+
+                    }
+                } else if(days <= 21){
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    giftReceiveDay3=21-days;
+                    giftReceiveDay4=28-days;
+                    $(".giftReceiveDay3").text(giftReceiveDay3);
+                    $(".giftReceiveDay4").text(giftReceiveDay4);
+                    if(days == 21){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+
+
+                    }
+                } else if(days <= 28){
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                    giftReceiveDay4=28-days;
+                    $(".giftReceiveDay4").text(giftReceiveDay4);
+
+                    if(days == 28){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").removeClass("active");
+                        $(".qd_gift_bag_wrap dl:nth-child(4) dd").text("已领取");
+
+                    }
+                } else if(days <= 31){
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(4) dd").text("已领取");
+                };
+
+
+
+
+
+
+
+            }
+        });
+        var start = localStorage.getItem("start");
+        var days = localStorage.getItem("days");
+        // 签到请求数据
+
+
+        // 初始刷新数据
+        function qdFun(url){
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                url:url,
+                data:{
+                    token:qdToken
+                },
+                async: false,
+                success:function(event){
+                    var start = localStorage.getItem("start");
+                    var parAdd_num =parseInt(localStorage.getItem("add_num"));
+                    var parCard_num =parseInt(localStorage.getItem("card_num"));
+
+                    // if(start == 1){
+                    //     return qdMoveCarFun();
+                    // }else
+                    if(start == 2){
+                        localStorage.getItem("days");
+                        $("#qd_state_btn").text("已签到");
+
+                        return qdAnimate();
+
+                    } else if(start == 3){
+                        var bqk = parCard_num-1;//补签卡张数
+                        var ybq = parAdd_num+1;//已补签次数
+                        $(".qd_supplement_info_surplus i").text(ybq);
+                        $(".qd_supplement_info_already i").text(bqk);
+                        $("#qd_state_btn").text("补签");
+                        return qdAnimate();
+                    }
+
+                }
+            });
+        };
+
+            // 点击时候刷新数据
+        // function qdFun1(){
+        //     $.ajax({
+        //         type:"post",
+        //         dataType:"json",
+        //         url:'http://app.myzzz.top/app/customer/customerSign',
+        //         data:{
+        //             token:qdToken
+        //         },
+        //         async: false,
+        //         success:function(event){
+        //             console.log(event);
+        //             // var start = localStorage.getItem("start");
+        //             var parAdd_num =parseInt(localStorage.getItem("add_num"));
+        //             var parCard_num =parseInt(localStorage.getItem("card_num"));
+        //             // localStorage.setItem("days",days);
+        //             // var days = localStorage.getItem("days");
+        //
+        //             // return qdAnimate();
+        //             if(start == 2){
+        //
+        //                 $("#qd_state_btn").text("已签到");
+        //
+        //                 qdAnimate();
+        //
+        //                 $.ajax({
+        //                     type:"post",
+        //                     dataType:"json",
+        //                     url:"http://app.myzzz.top/app/customer/signData",
+        //                     data:{
+        //                         token:qdToken
+        //                     },
+        //                     async: false,
+        //                     success:function(events){
+        //                         console.log(events);
+        //                         var start1 = events.content.start;
+        //                         if(start1 == 1){
+        //                             $(".qd_state_btn").text("已签到");
+        //                             localStorage.removeItem('clickStart');
+        //                             localStorage.setItem('clickStart',start1);
+        //                             // alert("已签到")
+        //                             // $(function () {
+        //                             //     var u = navigator.userAgent, app = navigator.appVersion;
+        //                             //     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+        //                             //     var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        //                             //     if (isAndroid) {
+        //                             //         //移动端分享数据
+        //                             //         jsfunction.share("");
+        //                             //     }
+        //                             //     if (isIOS) {
+        //                             //         window.webkit.messageHandlers.hintCookies.postMessage({
+        //                             //
+        //                             //         });
+        //                             //     }
+        //                             // });
+        //                         }else if(start1 == 2){
+        //                             $(".qd_state_btn").text("签到");
+        //                             return qdAnimate();
+        //                         }else if(start1 == 3){
+        //                             $(".qd_state_btn").text("补签");
+        //                             return qdAnimate();
+        //                         };
+        //
+        //                     }
+        //                 });
+        //
+        //             } else if(start == 3){
+        //                 var bqk = parCard_num-1;//补签卡张数
+        //                 var ybq = parAdd_num+1;//已补签次数
+        //                 $(".qd_supplement_info_surplus i").text(bqk);
+        //                 $(".qd_supplement_info_already i").text(ybq);
+        //                 $("#qd_state_btn").text("补签");
+        //                 return qdAnimate();
+        //             }
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //         }
+        //     });
+        // };
+
+
+
+
+
+        // 点击签到
+        $("#qd_state_btn").click(function(){
+
+
+            var nowStart = localStorage.getItem("start");
+            if(nowStart == 1){
+                // var url = urlcommon+'/customer/customerSign';//测试库
+                // return qdFun(url);
+                // alert("已签到");
+
+                $(function () {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+                    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    if (isAndroid) {
+                        //移动端分享数据
+
+                        window.jsfunction.show();
+                    }
+                    if (isIOS) {
+                        window.webkit.messageHandlers.hintCookies.postMessage({
+
+                        });
+                    }
+                });
+
+
+                $(".integral_hint_message").hide();
+                // window.location.reload();
+            }else if(nowStart == 2){
+                var url = urlcommon+'/customer/customerSign';//测试库
+                return qdFun(url);
+            }else if(nowStart == 3){
+                var url = urlcommon+'/customer/sign_card';//测试库
+                return qdFun(url);
+            };
+
+        });
+
+
+
+
+        function qdAnimate(){
+            // 礼包领取
+            var giftReceiveDay1;
+            var giftReceiveDay2;
+            var giftReceiveDay3;
+            var giftReceiveDay4;
+            var nowDays = localStorage.getItem("days");
+            var moveDays = parseInt(nowDays)+1;
+            var giftStartOffset = $(".qd_move_car").offset();
+            var giftEndOffset = $(".qd_info_left span").offset(),
+            hang= Math.ceil(moveDays/7),
+                lie= moveDays-(hang-1)*7,
+                lie1 = hang*7-moveDays+1,
+                quyu= hang%2;//判断奇偶行数
+
+
+            var days = localStorage.getItem("days"),
+                start = localStorage.getItem("start"),
+                add_num = localStorage.getItem("add_num"),
+                card_num = localStorage.getItem("card_num"),
+                deldays = localStorage.getItem("deldays"),
+                // carts_num = localStorage.getItem("carts_num"),
+                // qd_reward_num = localStorage.getItem("qd_reward_num"),
+                qd_reward_day = localStorage.getItem("qd_reward_day"),
+                carLi = $(".qd_step_road_list ul li").width(),
+                carStepFIrst = carLi/2,
+                carRightStep1 = (carLi*(moveDays-1))+carStepFIrst,
+                carRightStep2 = (carLi*((moveDays-14)-1))+carStepFIrst,
+                carRightStep3 = (carLi*((moveDays-28)-1))+carStepFIrst,
+                carLeftStep1 = (15-moveDays)*carLi-carStepFIrst,
+                carLeftStep2 = (29-moveDays)*carLi-carStepFIrst,
+                carMoveTop = parseInt($(".qd_move_car").css("top").replace('px', '')),
+                carTurnDistance = $(".qd_step_road_curve").height()+$(".qd_step_road_list ul").height()/2;
+
+
+
+
+            if(days<=5){
+                giftReceiveDay1=6-days;
+                giftReceiveDay2=11-days;
+                giftReceiveDay3=21-days;
+                giftReceiveDay4=28-days;
+                $(".giftReceiveDay1").text(giftReceiveDay1-1);
+                $(".giftReceiveDay2").text(giftReceiveDay2-1);
+                $(".giftReceiveDay3").text(giftReceiveDay3-1);
+                $(".giftReceiveDay4").text(giftReceiveDay4-1);
+                if(days == 5){
+                    // $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                    // $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+
+
+                    // 领取礼包动画
+                    var img = $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+") span img").attr("src");
+                    var flyer = $('<img class="u-flyer" src="'+img+'">');
+                    flyer.fly({
+                        start: {
+                            left: giftStartOffset.left+carLi,
+                            top: giftStartOffset.top
+                        },
+                        end: {
+                            left: giftEndOffset.left+10,
+                            top: giftEndOffset.top+10,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function(){
+                            $(".hint_message").fadeIn(1000).fadeOut(2000);
+                            this.destory();
+                        }
+                    });
+
+                }
+
+            } else if(days <= 10){
+                // $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                giftReceiveDay2=11-days;
+                giftReceiveDay3=21-days;
+                giftReceiveDay4=28-days;
+                $(".giftReceiveDay2").text(giftReceiveDay2-1);
+                $(".giftReceiveDay3").text(giftReceiveDay3-1);
+                $(".giftReceiveDay4").text(giftReceiveDay4-1);
+                if(days == 10){
+                    // $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").removeClass("active");
+                    // $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+
+                    // 领取礼包动画
+                    var imgs = $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+") span img").attr("src");
+                    var flyer = $('<img class="u-flyer" src="'+imgs+'">');
+                    flyer.fly({
+                        start: {
+                            left: giftStartOffset.left-carLi,
+                            top: giftStartOffset.top
+                        },
+                        end: {
+                            left: giftEndOffset.left+10,
+                            top: giftEndOffset.top+10,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function(){
+                            $(".hint_message").fadeIn(1000).fadeOut(2000);
+                            this.destory();
+                        }
+                    });
+                }
+            } else if(days <= 20){
+                // $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                // $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                giftReceiveDay3=21-days;
+                giftReceiveDay4=28-days;
+                $(".giftReceiveDay3").text(giftReceiveDay3-1);
+                $(".giftReceiveDay4").text(giftReceiveDay4-1);
+                if(days == 20){
+                    // $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                    // $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+
+                    // 领取礼包动画
+                    var img = $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+") span img").attr("src");
+                    var flyer = $('<img class="u-flyer" src="'+img+'">');
+                    flyer.fly({
+                        start: {
+                            left: giftStartOffset.left+carLi,
+                            top: giftStartOffset.top
+                        },
+                        end: {
+                            left: giftEndOffset.left+10,
+                            top: giftEndOffset.top+10,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function(){
+                            $(".hint_message").fadeIn(1000).fadeOut(2000);
+                            this.destory();
+                        }
+                    });
+                }
+            } else if(days <= 27){
+                // $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                // $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                // $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                giftReceiveDay4=28-days;
+                $(".giftReceiveDay4").text(giftReceiveDay4-1);
+
+                if(days == 27){
+                    // $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").removeClass("active");
+                    // $(".qd_gift_bag_wrap dl:nth-child(4) dd").text("已领取");
+
+                    // 领取礼包动画
+                    var img = $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+") span img").attr("src");
+                    var flyer = $('<img class="u-flyer" src="'+img+'">');
+                    flyer.fly({
+                        start: {
+                            left: giftStartOffset.left-carLi,
+                            top: giftStartOffset.top
+                        },
+                        end: {
+                            left: giftEndOffset.left+10,
+                            top: giftEndOffset.top+10,
+                            width: 0,
+                            height: 0
+                        },
+                        onEnd: function(){
+                            $(".hint_message").fadeIn(1000).fadeOut(2000);
+                            this.destory();
+                        }
+                    });
+                }
+            };
+
+
+            // console.log("n"+array[0]);
+            // console.log(nowDays);
+            // var per_carts_num = parseInt(carts_num);
+            // 小车位置
+            if(nowDays == 0){
+                var nowLeft = carLeftSet;
+                var nowTop = carTopSet;
+                nowLeft = carStepFIrst;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child(1) li:nth-child(1)").addClass("active");
+                },300);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num > 0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days')
+                    localStorage.setItem("days",newDays)
+
+
+                    var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                    $(".integral_hint_message span").text(qd_reward_num);
+                    $(".integral_hint_message").show().fadeOut(2000);
+                }
+
+
+
+
+                var qd_reward_num = rewardArray[parseInt(nowDays)];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                    $(".integral_hint_message").show().fadeOut(2000);
+
+            } else if(nowDays == 1){
+                var nowLeft = carLeftSet;
+                var nowTop = carTopSet;
+                nowLeft = carRightStep1;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+
+                    // $(".qd_step .qd_step_road_list ul li:nth-child(1)").removeClass("active");
+                    // $(".qd_step .qd_step_road_list ul li:nth-child(2)").addClass("active");
+                },300);
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num > 0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days')
+                    localStorage.setItem("days",newDays)
+
+
+                }
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            }else if(nowDays < 7){
+                var nowLeft = array[0];
+                var nowTop = array[1];
+                nowLeft = carRightStep1;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1+1)+")").removeClass("active");
+                },300);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else {
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+
+                    if(days == 5){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        // $(".shop_cart_num").text(parseInt(1)+per_carts_num);
+                        $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    };
+                }
+
+
+                // localStorage.removeItem('qd_reward_num');
+                // localStorage.setItem("qd_reward_num",qd_reward_num);
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            }else if(nowDays < 8){
+                var nowLeft = carRightStep1;
+                var nowTop = carTopSet;
+                $('.qd_move_car').animate({
+                    left:carLi*(moveDays-1)
+                }).animate({
+                    top:nowTop+carTurnDistance
+                }).animate({
+                    left:(carLi*(moveDays-1))-carStepFIrst
+                });
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    if(quyu==0){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").addClass("active");
+                    }else{
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1+1)+")").removeClass("active");
+                    }
+
+                },1000);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num >0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                }
+
+
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            } else if(nowDays<14){
+                var nowLeft = array[0];
+                var nowTop = array[1];
+                nowLeft = carLeftStep1;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie)+")").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1)+")").addClass("active");
+                },300);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                } else if(card_num >0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    if(days == 11){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        // $(".shop_cart_num").text(parseInt(2)+per_carts_num);
+                        $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    }
+                }
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            }else if(nowDays < 15){
+                var nowLeft = carLeftStep1;
+                var nowTop = carMoveTop+carTurnDistance-10;
+                $('.qd_move_car').animate({
+                    left:carX
+                }).animate({
+                    top:nowTop
+                }).animate({
+                    left:carStepFIrst
+                });
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+(hang+1)+") li:nth-child("+lie1+")").removeClass("active");
+                },1000);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num ==0 ){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num>0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                }
+
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            } else if(nowDays < 21){
+                var nowLeft = array[0];
+                var nowTop = array[1];
+                nowLeft = carRightStep2;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1+1)+")").removeClass("active");
+                },300);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num > 0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    if(days == 20){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        // $(".shop_cart_num").text(parseInt(3)+per_carts_num);
+                        $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                    };
+                }
+
+
+
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            } else if(nowDays < 22){
+
+                var nowLeft = carLeftStep1;
+                var nowTop = carMoveTop+carTurnDistance+10
+                $('.qd_move_car').animate({
+                    left:carLi*((moveDays-14)-1)
+                }).animate({
+                    top:nowTop
+                }).animate({
+                    left:(carLi*((moveDays-14)-1))-carStepFIrst
+                });
+
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    if(quyu==0){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie1+")").addClass("active");
+                    }else{
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1+1)+")").removeClass("active");
+                    }
+
+                },1000);
+
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num>0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                }
+
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+
+            } else if(nowDays < 28){
+
+                var nowLeft = array[0];
+                var nowTop = array[1];
+                nowLeft = carLeftStep2;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie)+")").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1)+")").addClass("active");
+                },300);
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num >0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                    $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                    $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                    if(days == 27){
+                        $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").removeClass("active");
+                        // $(".shop_cart_num").text(parseInt(4)+per_carts_num);
+                        $(".qd_gift_bag_wrap dl:nth-child(4) dd").text("已领取");
+                    }
+
+                }
+
+
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            } else if(nowDays < 29){
+
+                var nowLeft = carLeftStep1;
+                var nowTop = carMoveTop+carTurnDistance-10;
+                $('.qd_move_car').animate({
+                    left:carX
+                }).animate({
+                    top:nowTop
+                }).animate({
+                    left:carStepFIrst
+                });
+
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+(hang+1)+") li:nth-child("+lie1+")").removeClass("active");
+                },1000);
+
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num >0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+
+                }
+
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+
+            } else if(nowDays < 31){
+
+
+
+                var nowLeft = array[0];
+                var nowTop = array[1];
+                nowLeft = carRightStep3;
+                $('.qd_move_car').animate({left:nowLeft},{top:nowTop});
+
+                setTimeout(function () {
+                    $(".qd_step .qd_step_road_list ul li").removeClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+lie+")").addClass("active");
+                    $(".qd_step .qd_step_road_list:nth-child("+hang+") li:nth-child("+(lie1+1)+")").removeClass("active");
+                },300);
+                $(".qd_move_car").text(parseInt(nowDays)+1);
+                if(card_num == 0){
+                    var card_num = parseInt(card_num);
+                    var add_num=  parseInt(add_num);
+                }else if(card_num > 0){
+                    var card_num = parseInt(card_num)-1;
+                    var add_num=  parseInt(add_num)+1;
+                    localStorage.removeItem('card_num');
+                    localStorage.setItem("card_num",card_num);
+                    localStorage.removeItem('add_num');
+                    localStorage.setItem("add_num",add_num);
+
+                    $(".qd_supplement_info").empty()
+                    $(".qd_supplement_info").append(' <label class="qd_supplement_info_already">已补签：<i>'+localStorage.getItem("add_num")+'</i></label>\n' +
+                        '                <label class="qd_supplement_info_surplus">补签剩余：<i>'+localStorage.getItem("card_num")+'</i></label>')
+                    var newDays = $(".qd_move_car").text();
+                    localStorage.removeItem('days');
+                    localStorage.setItem("days",newDays);
+                }
+
+
+                $(".qd_gift_bag_wrap dl:nth-child(1) dd").text("已领取");
+                $(".qd_gift_bag_wrap dl:nth-child(2) dd").text("已领取");
+                $(".qd_gift_bag_wrap dl:nth-child(3) dd").text("已领取");
+                $(".qd_gift_bag_wrap dl:nth-child(4) dd").text("已领取");
+                var qd_reward_num = rewardArray[parseInt(localStorage.getItem("days"))-1];
+
+                $(".integral_hint_message span").text(qd_reward_num);
+                $(".integral_hint_message").show().fadeOut(2000);
+
+            };
+            $(".integral_hint_message").show().fadeOut(2000);
+
+
+            // 显示积分
+            // if(qd_reward_day == parseInt(days)){
+            //     $(".integral_hint_message span").text(qd_reward_num);
+            //     $(".integral_hint_message").show().fadeOut(2000);
+            //
+            // };
+            setTimeout(function(){
+                window.location.reload();
+            },1000);
+
+
+
+        };
+
+        // 分享
+        $(".qd_info_right").click(function(){
+
+            var isShare = localStorage.getItem("isShare");
+
+            if(isShare>0){
+                var url = urlcommon+'/customer/sign_share';//测试库
+                $.ajax({
+                    type:"post",
+                    dataType:"json",
+                    url:url,
+                    data:{
+                        token:qdToken
+                    },
+                    async: false,
+                    success:function(events){
+
+                    }
+                });
+            };
+
+            $(function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+                var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                if (isAndroid) {
+                    //移动端分享数据
+                    jsfunction.qdShare("http://www.myzzz.top/inviteFriendApp2.html");
+                }
+                if (isIOS) {
+                    window.webkit.messageHandlers.currentCookies.postMessage({
+
+                    });
+                }
+            });
+        });
+
+
+        // 购物车
+        $(".qd_info_left").click(function(){
+            $(function () {
+                var u = navigator.userAgent, app = navigator.appVersion;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+                var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                if (isAndroid) {
+                    //移动端分享数据
+                    jsfunction.qdShopCart("");
+                }
+                if (isIOS) {
+                    window.webkit.messageHandlers.cartCookies.postMessage({
+
+                    });
+                }
+            });
+        });
+
+    });
+</script>
+
+</body>
+</html>

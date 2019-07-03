@@ -1,0 +1,513 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,pre,hr,figure,table,caption,th,td,form,input,button,textarea{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,img,iframe{border:0;}
+i,em{font-style:normal;}
+[hidefocus],summary{outline:none;}
+li{list-style:none;}
+/*h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}*/
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:normal;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select{font-family: "PingFang-SC";color:#333;outline:none;}
+body{background:#fff;}
+a{color:#333;-webkit-tap-highlight-color:transparent;}
+img,input,textarea,button {vertical-align: middle;-webkit-tap-highlight-color:transparent;}
+input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; }
+img{
+    width:100%;
+    /*height: 100%;*/
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.wrap{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.qd_top{
+    width:100%;
+    height:auto;
+    background:#ffffff;
+    padding:0.7rem  0 0.3rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    position: relative;
+}
+.qd_back{
+    position: absolute;
+    left:0.3rem;
+    top:0.7rem;
+    width:0.18rem;
+    height:0.36rem;
+    /*background:url("images/qd_back.png") no-repeat;
+    background-size:100% 100%;*/
+}
+.qd_top label{
+    display: block;
+    width:100%;
+    height:auto;
+    text-align: center;
+    font-size:0.36rem;
+}
+.qd_main{
+    width:100%;
+    height:auto;
+    background:#FFEFBD;
+    padding-bottom:2.48rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_step_wrap{
+    width:100%;
+    height:7.5rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/bf11bb5eb696f1eadacfd8e6edcd9a6fdd1571cf.png") no-repeat;
+    background-size:100% 100%;
+    position: relative;
+}
+.qd_move_car{
+    position: absolute;
+    /*left: 0.05rem;*/
+    /*top: 0.84rem;*/
+    width:0.89rem;
+    height:0.84rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/f86840db48100044f2e3d73932a56e0364af0c33.png") no-repeat;
+    background-size:100% 100%;
+    z-index:50;
+    font-size:0.34rem;
+    color:#FFFFFF;
+    text-align: center;
+    line-height:0.72rem;
+}
+.qd_empty_hint{
+    font-family: "PingFang-SC-Medium";
+    font-size:.28rem;
+    color:#585371;
+    position: absolute;
+    right:0.52rem;
+    bottom:0.42rem;
+}
+.qd_empty_hint span{
+    font-size:0.38rem;
+}
+.qd_step{
+    width:100%;
+    height:auto;
+    padding:1.2rem 0.12rem 0.18rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_step .qd_step_road_list{
+    width:100%;
+    height:0.92rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/5595fb45a8325b8b787a9fb0879e73fa2dfa8f79.png") no-repeat;
+    background-size:100% 100%;
+    position: relative;
+    z-index:22;
+    margin-bottom:0.39rem;
+}
+.qd_step .qd_step_road_list.qd_step_road_list_first{
+    width:100%;
+    height:0.92rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/c39eb6c3a67bf05d2176d4a532e0e4aa956ee1b1.png") no-repeat;
+    background-size:100% 100%;
+    position: relative;
+    z-index:22;
+    margin-bottom:0.39rem;
+}
+.qd_step .qd_step_road_list.qd_step_road_list_last{
+    width:3.28rem;
+    height:0.92rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/b8b20d1cd85fb357088e90712d43dfd231e25702.png") no-repeat;
+    background-size:100% 100%;
+    position: relative;
+    z-index:22;
+    /*margin-bottom:0.43rem;*/
+}
+.qd_step .qd_step_road_list.qd_step_road_list_last ul{
+    padding:0 0 0 0.45rem;
+}
+.qd_step .qd_step_road_list.qd_step_road_list_last ul li{
+    width:32%;
+}
+.qd_step .qd_step_road_list:nth-child(even){
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/d6d71cbf01d14df4062d2adef84fd25cb20bfdce.png") no-repeat;
+    background-size:100% 100%;
+}
+.qd_step_road_list .qd_step_road{
+    width:100%;
+    height:0.92rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/d6d71cbf01d14df4062d2adef84fd25cb20bfdce.png") no-repeat;
+    background-size:100% 100%;
+    z-index:22;
+}
+.qd_step_road_list ul{
+    width:100%;
+    height:auto;
+    position: absolute;
+    left:0;
+    bottom:0.92rem;
+    padding: 0 .26rem 0 .4rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_step_road_list ul:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.qd_step_road_list ul li{
+    float: left;
+    width:14%;
+    height:0.72rem;
+}
+.qd_step_road_list ul li span{
+     display: block;
+     width:0.13rem;
+     height:.72rem;
+     background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/5a3f6b08bf30890dc011792a908623b201bffef9.png") no-repeat;
+     background-size:100% 100%;
+     margin:0 auto;
+ }
+.qd_step_road_list ul li.active span{
+    display: block;
+    width:0.67rem;
+    height:.72rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/ba93fc42e21fd872da15eb7528932a64dd840436.png") no-repeat;
+    background-size:100% 100%;
+    margin:0 auto;
+}
+.qd_step_road_list:nth-child(1) ul li:nth-child(6) span{
+    display: block;
+    width:1.01rem;
+    height:1.17rem;
+    background: none;
+    margin:-0.3rem auto 0;
+}
+
+.qd_step_road_list:nth-child(2) ul li:nth-child(4) span{
+    display: block;
+    width:1.22rem;
+    height:1.11rem;
+    /*background: url("images/qd_receive_two.png") no-repeat;*/
+    /*background-size:100% 100%;*/
+    background:none;
+    margin:-0.18rem 0 0 -0.12rem;
+}
+.qd_step_road_list:nth-child(3) ul li:nth-child(7) span{
+    display: block;
+    width:1.26rem;
+    height:0.91rem;
+    /*background: url("images/qd_receive_three.png") no-repeat;*/
+    /*background-size:100% 100%;*/
+    background:none;
+    margin:-0.18rem 0 0 -0.12rem;
+}
+.qd_step_road_list:nth-child(4) ul li:nth-child(1) span{
+    display: block;
+    width:1rem;
+    height:1.22rem;
+    /*background: url("images/qd_receive_four.png") no-repeat;*/
+    /*background-size:100% 100%;*/
+    background:none;
+    margin:-0.36rem 0 0 0rem;
+}
+.qd_step_road_list:nth-child(1) ul li:nth-child(6) span img,
+.qd_step_road_list:nth-child(2) ul li:nth-child(4) span img,
+.qd_step_road_list:nth-child(3) ul li:nth-child(7) span img,
+.qd_step_road_list:nth-child(4) ul li:nth-child(1) span img
+{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.qd_step_road_curve_wrap{
+    width:100%;
+    /*height:0.53rem;*/
+    height:auto;
+    position: absolute;
+    left:0;
+    top:0.82rem;
+}
+.qd_step_road_curve_wrap:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.qd_step_road_curve{
+    width:0.68rem;
+    height:0.53rem;
+}
+.qd_step_road_curve_right{
+    width:0.68rem;
+    height:1.1rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/9c6263dc19b65ff524951385a24610bf8fd3cc91.png") no-repeat;
+    background-size:100% 100%;
+    margin-top:-0.35rem;
+}
+.qd_step_road_curve_left{
+    width:0.68rem;
+    height:1.1rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/d7ebe64aa417f345b6a773a2df8a3821231f7102.png") no-repeat;
+    background-size:100% 100%;
+    margin-top:-0.35rem;
+}
+
+.qd_info_wrap{
+    width:100%;
+    height:1.7rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/85e645a93a04efdef58d1d7344d6bb5bec0f783f.png") no-repeat;
+    background-size:100% 100%;
+    margin-top:.3rem;
+    position: relative;
+}
+.qd_info_left{
+    position: absolute;
+    left:-0.08rem;
+    top:-0.05rem;
+    width:1.33rem;
+    height:1.78rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/36dbd0e89cbbcd88af9c9348264f72f6233362ca.png") no-repeat;
+    background-size:100% 100%;
+}
+.qd_info_left span{
+    position: absolute;
+    left:.16rem;
+    top:.64rem;
+    width:0.66rem;
+    height:.5rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/43f5199ea5a17d7eb8299f21ec857a06a16bf5af.png") no-repeat;
+    background-size:100% 100%;
+}
+.qd_info_left span i{
+    position: absolute;
+    top:-0.03rem;
+    right:0;
+    width:0.24rem;
+    height:0.24rem;
+    line-height:0.24rem;
+    background:#ff0000;
+    border-radius:50%;
+    font-size:0.2rem;
+    text-align: center;
+    color:#ffffff;
+    z-index:22;
+}
+.qd_info_right{
+    position: absolute;
+    right:-0.08rem;
+    top:-0.05rem;
+    width:1.33rem;
+    height:1.78rem;
+    line-height:1.78rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/53a3025a5449f4cb16a2a58b276c63f021ae9515.png") no-repeat;
+    background-size:100% 100%;
+    /*text-align: center;*/
+    font-size:0.26rem;
+    padding-left:0.52rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_state_btn{
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width:1.8rem;
+    height:1.36rem;
+    line-height:1.36rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/a45b8f949882aa3af6bdb5a71750dd93c149a349.png") no-repeat;
+    background-size:100% 100%;
+    font-size:0.36rem;
+    text-align: center;
+    font-weight: bold;
+    color:#585371;
+}
+.qd_supplement_info{
+    width:100%;
+    height:auto;
+    padding:0.18rem 1.28rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_supplement_info:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.qd_supplement_info .qd_supplement_info_already{
+    font-family: "PingFang-SC-Medium";
+    float: left;
+    font-size:.26rem;
+    color:#585371;
+}
+.qd_supplement_info .qd_supplement_info_surplus{
+    font-family: "PingFang-SC-Medium";
+    float: right;
+    font-size:.26rem;
+    color:#585371;
+}
+.qd_gift_bag_wrap{
+    position: fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:2.18rem;
+    background: url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/658802ff457d29d76e1483a0b7b631b32e47f37c.png") no-repeat;
+    background-size:100% 100%;
+    padding:0 0.01rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_gift_bag_wrap:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.qd_gift_bag_wrap dl{
+    float: left;
+    width:25%;
+    height:auto;
+    padding:0.16rem 0 0.32rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*margin-right:0.3rem;*/
+}
+.qd_gift_bag_wrap dl:first-child{
+    border-radius:20px 0 0 0;
+}
+.qd_gift_bag_wrap dl:last-child{
+    border-radius:0 20px 0 0;
+}
+.qd_gift_bag_wrap dl.receive{
+    background:rgba(0,0,0,.1);
+}
+.qd_gift_bag_wrap dl dt{
+    width:1.32rem;
+    height:1.32rem;
+    margin:0 auto 0.14rem;
+}
+.qd_gift_bag_wrap dl dt img{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.qd_gift_bag_wrap dl dd{
+    font-family: "PingFang-SC-Medium";
+    width:100%;
+    height:auto;
+    text-align: center;
+    color:#585371;
+    font-size:0.2rem;
+}
+.qd_gift_bag_wrap dl dd span{
+    color:#FF0000;
+    font-size:0.26rem;
+    font-weight: bold;
+    padding:0 0.01rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.qd_gift_bag_wrap dl:nth-child(4){
+    margin-right:0;
+}
+.u-flyer{
+    width:0.4rem;
+    height:0.4rem;
+    z-index:2222
+}
+.hint_message{
+    display: none;
+    width:80%;
+    height:0.6rem;
+    line-height:0.6rem;
+    text-align: center;
+    background:rgba(0,0,0,.5);
+    font-size:0.24rem;
+    color:#ffffff;
+    position: fixed;
+    left:10%;
+    bottom:2rem;
+    z-index:222;
+    border-radius:5px;
+}
+.integral_hint_message{
+    display: none;
+    width:80%;
+    height:0.6rem;
+    line-height:0.6rem;
+    text-align: center;
+    background:rgba(0,0,0,.45);
+    font-size:0.24rem;
+    color:#ffffff;
+    position: fixed;
+    left:10%;
+    top:22%;
+    z-index:222;
+    border-radius:5px;
+}
+/*礼包内容弹层start*/
+.gift_content_dialog{
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,.3);
+    z-index:3333;
+    display: none;
+}
+.gift_content_wrap{
+    width:70%;
+    height:5rem;
+    background:#ffffff;
+    border-radius:15px;
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.gift_content{
+    width:100%;
+    height:5rem;
+    padding:0.22rem 0.44rem 0.22rem 0.68rem;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.gift_content img{
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    width:3.5rem;
+    height:3.5rem;
+}
+.gift_content_close{
+    width:.44rem;
+    height:.44rem;
+    background:url("https://kouhigh.kouhigh.top/upload/url/2018_11_23/0546870571e177eec157f6e662d7ae1a0ce0595b.png") no-repeat;
+    background-size:100% 100%;
+    margin:0.32rem auto 0;
+}
+/*礼包内容弹层end*/

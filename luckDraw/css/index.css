@@ -1,0 +1,305 @@
+@charset "utf-8";
+body {
+  /*background-color: #ff7040;*/
+}
+.wrap {
+  margin-top: -0.01333333rem;
+  /*height: 17.8rem;*/
+  height: 35.84rem;
+  background-image: url("../images/bgs.png");
+  backgroind-size:100% 100%;
+}
+.caidai {
+  position: absolute;
+  width: 100%;
+  height: 13.65333333rem;
+  /*background-image: url("../images/caidai.png");*/
+}
+.header {
+  /*padding: 0.49333333rem;*/
+  padding: 0.36rem 0.49333333rem 0.2rem;
+}
+.my_prize,
+.my_prize_share {
+  /*position: relative;*/
+  /*z-index: 1;*/
+  position: absolute;
+  bottom:0;
+  width: 2rem;
+  height: 0.84rem;
+}
+.my_prize{
+  background-image: url("../images/my_prize_btn.png");
+  background-size:100% 100%;
+  left:0.18rem;
+}
+.my_prize_share{
+  background-image: url("../images/prize_share.png");
+  background-size:100% 100%;
+  right:0.18rem;
+}
+.my {
+  width: 1.6rem;
+}
+.title {
+  width: 8.52rem;
+  height: 4.21333333rem;
+  margin: auto;
+  /*background-image: url("../images/title.png");*/
+}
+/*轮盘*/
+.rotate {
+  position: relative;
+  width: 100%;
+  height: 8.93333333rem;
+}
+.lunpai {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8.86666667rem;
+  height: 8.86666667rem;
+  margin-left: -4.42666667rem;
+  background-image: url("../images/circle.png");
+}
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 0.34666667rem;
+  width: 8.22666667rem;
+  height: 8.22666667rem;
+  margin-left: -4.08rem;
+  background-image: url("../images/dark.png");
+}
+.rotate div.light {
+  background-image: url("../images/light.png");
+}
+#btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2.13333333rem;
+  height: 2.64rem;
+  margin: -1.32rem 0 0 -1.06666667rem;
+  background-image: url("../images/luck_draw_button.png");
+}
+/*奖品*/
+.prize {
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -3.86666667rem 0 0 -3.86666667rem;
+  width: 7.73333333rem;
+  height: 7.73333333rem;
+  border-radius: 50%;
+}
+.running {
+  -o-animation: init 90s linear infinite;
+  -ms-animation: init 90s linear infinite;
+  -moz-animation: init 90s linear infinite;
+  -webkit-animation: init 90s linear infinite;
+  animation: init 90s linear infinite;
+}
+@keyframes init {
+  100% {
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.prize li {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3.86666667rem;
+  background: no-repeat center 35%;
+
+  font-size: 0.3rem;
+  font-weight: bold;
+  line-height: 0.8rem;
+  text-align: center;
+  color: #f44747;
+  -moz-transform-origin: center bottom;
+  -webkit-transform-origin: center bottom;
+  -o-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+.prize li:nth-child(1) {
+  background-image: url("../images/prize_content_one.png");
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  /*background: no-repeat center 100%;*/
+  /*background-size: 5.72rem 8.346rem;*/
+  background-size: 0.72rem 1.6rem;
+}
+.prize li:nth-child(2) {
+  background-image: url("../images/prize_content_two.png");
+  -o-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+  background-size: 1.33rem .8rem;
+}
+.prize li:nth-child(3) {
+  background-image: url("../images/prize_content_three.png");
+  -o-transform: rotate(80deg);
+  -ms-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -webkit-transform: rotate(80deg);
+  transform: rotate(80deg);
+  background-size: 1.33rem 1.04rem;
+}
+.prize li:nth-child(4) {
+  background-image: url("../images/prize_content_four.png");
+  -o-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  background-size: 1.2rem 1.24rem;
+}
+.prize li:nth-child(5) {
+  background-image: url("../images/prize_content_five.png");
+  -o-transform: rotate(160deg);
+  -ms-transform: rotate(160deg);
+  -moz-transform: rotate(160deg);
+  -webkit-transform: rotate(160deg);
+  transform: rotate(160deg);
+  background-size: 1.33rem 1.106rem;
+}
+.prize li:nth-child(6) {
+  background-image: url("../images/prize_content_six.png");
+  -o-transform: rotate(200deg);
+  -ms-transform: rotate(200deg);
+  -moz-transform: rotate(200deg);
+  -webkit-transform: rotate(200deg);
+  transform: rotate(200deg);
+  background-size: 1.33rem 1.04rem;
+}
+.prize li:nth-child(7) {
+  background-image: url("../images/prize_content_seven.png");
+  -o-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  -moz-transform: rotate(240deg);
+  -webkit-transform: rotate(240deg);
+  transform: rotate(240deg);
+  background-size: 0.786rem 1.56rem;
+}
+.prize li:nth-child(8) {
+  background-image: url("../images/prize_content_eight.png");
+  -o-transform: rotate(280deg);
+  -ms-transform: rotate(280deg);
+  -moz-transform: rotate(280deg);
+  -webkit-transform: rotate(280deg);
+  transform: rotate(280deg);
+  background-size: 1.04rem 1.173rem;
+}
+.prize li:nth-child(9) {
+  background-image: url("../images/prize_content_nine.png");
+  -o-transform: rotate(320deg);
+  -ms-transform: rotate(320deg);
+  -moz-transform: rotate(320deg);
+  -webkit-transform: rotate(320deg);
+  transform: rotate(320deg);
+  background-size: 1.04rem 1.173rem;
+}
+.prize li span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  border-right: 2px solid #f44747;
+  -o-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  -moz-transform-origin: right bottom;
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  /*-o-transform: rotate(30deg) skewY(30deg);*/
+  /*-ms-transform: rotate(30deg) skewY(30deg);*/
+  /*-moz-transform: rotate(30deg) skewY(30deg);*/
+  /*-webkit-transform: rotate(30deg) skewY(30deg);*/
+  /*transform: rotate(30deg) skewY(30deg);*/
+
+  -o-transform: rotate(20deg) skewY(50deg);
+  -ms-transform: rotate(20deg) skewY(50deg);
+  -moz-transform: rotate(20deg) skewY(50deg);
+  -webkit-transform: rotate(20deg) skewY(50deg);
+  transform: rotate(20deg) skewY(50deg);
+}
+.prize li p {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  height: 60%;
+  padding-top: 0.26666667rem;
+  text-align: center;
+  line-height: 0.33333333rem;
+}
+/*次数*/
+.border {
+  width: 5.06666667rem;
+  height: 0.84rem;
+  margin: 0.13333333rem auto 0.33333333rem;
+  background-image: url("../images/border.png");
+  font-size: 0.32rem;
+  line-height: 0.84rem;
+  text-align: center;
+  color: #fff;
+}
+.scroll {
+  width: 7.33333333rem;
+  height: 2.33333333rem;
+  margin: auto;
+}
+.scroll p {
+  width: 4.76rem;
+  height: 0.29333333rem;
+  margin: auto;
+  background-image: url("../images/list.png");
+}
+.scroll div {
+  width: 100%;
+  height: .7rem;
+  margin-top: 0.26666667rem;
+  padding: 0.26666667rem 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.13333333rem;
+    overflow: hidden;
+}
+.scroll ul {
+  /*overflow: hidden;*/
+  /*width: 100%;*/
+  /*height: 100%;*/
+}
+.scroll ul li {
+  /*position: relative;*/
+  /*top: 0;*/
+  text-align: center;
+  font-size: 0.29333333rem;
+  line-height: 0.7rem;
+  color: #fff;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+/*规则背景*/
+#mask-prize .box-prize{
+  background-color: #fe5c51;
+}
+#mask-prize .box-prize .star{
+  background-image: url("../images/star2.png");
+}
